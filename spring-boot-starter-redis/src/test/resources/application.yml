@@ -1,0 +1,29 @@
+spring:
+  jedis:
+    business: 1
+    # 公共配置选项
+    maxWaitMillis: 30000
+    minIdle: 100
+    #auth: redis1234
+    timeout: 30000
+    testOnBorrow: true
+    maxTotal: 500
+    #在单机环境下可以不配置，按照规范大家配置一下
+    host: 192.168.1.250
+    port: 6379
+    stand:
+      alone:
+        enabled: false
+    # 在集群环境下必须配置，按照规范大家配置一下
+    nodes: 192.168.1.221:7000,192.168.1.221:7001,192.168.1.221:7002,192.168.1.221:7003,192.168.1.221:7004,192.168.1.221:7005
+    cluster:
+      enabled: false
+    # 在集群环境下通过zk可动态扩容必须配置，按照规范大家配置一下
+    haCluster:
+      enabled: true
+    zkHostPort: 192.168.1.221:2181
+    # 监控配置，按照规范大家配置一下
+    monitor:
+      enabled: true
+      url: http://127.0.0.1:8080/springboot/monitor
+      protocol: protocol

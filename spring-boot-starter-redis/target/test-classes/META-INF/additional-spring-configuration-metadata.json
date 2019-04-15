@@ -1,0 +1,23 @@
+{
+  "properties": [
+    {
+      "name": "spring.jedis.stand.alone.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Description for spring.jedis.stand.alone.enabled."
+    },
+    {
+      "name": "spring.jedis.cluster.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Description for spring.jedis.cluster.enabled."
+    },
+    {
+      "name": "spring.jedis.haCluster.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Description for spring.jedis.HAcluster.enabled."
+    },
+    {
+      "name": "spring.jedis.monitor.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Description for spring.jedis.monitor.enabled."
+    }
+  ] }

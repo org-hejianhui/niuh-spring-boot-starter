@@ -1,0 +1,117 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.zc.smartcity.redis.configure.SpringJedisProperties",
+      "name": "spring.jedis",
+      "type": "com.zc.smartcity.redis.configure.SpringJedisProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.zc.smartcity.redis.configure.SpringJedisProperties",
+      "name": "spring.jedis.auth",
+      "description": "Authentication password",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zc.smartcity.redis.configure.SpringJedisProperties",
+      "name": "spring.jedis.business",
+      "description": "business type",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "spring.jedis.cluster.enabled",
+      "description": "Description for spring.jedis.cluster.enabled.",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "name": "spring.jedis.haCluster.enabled",
+      "description": "Description for spring.jedis.HAcluster.enabled.",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.zc.smartcity.redis.configure.SpringJedisProperties",
+      "defaultValue": "localhost",
+      "name": "spring.jedis.host",
+      "description": "Redis stand-alone address",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zc.smartcity.redis.configure.SpringJedisProperties",
+      "defaultValue": 10,
+      "name": "spring.jedis.max-total",
+      "description": "Maximum number of connections",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.zc.smartcity.redis.configure.SpringJedisProperties",
+      "defaultValue": 30000,
+      "name": "spring.jedis.max-wait-millis",
+      "description": "Maximum waiting time",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.zc.smartcity.redis.configure.SpringJedisProperties",
+      "defaultValue": 1,
+      "name": "spring.jedis.min-idle",
+      "description": "Minimum number of connections",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.zc.smartcity.redis.configure.SpringJedisProperties",
+      "name": "spring.jedis.monitor",
+      "description": "monitor setting",
+      "type": "java.util.Map<?,?>"
+    },
+    {
+      "name": "spring.jedis.monitor.enabled",
+      "description": "Description for spring.jedis.monitor.enabled.",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.zc.smartcity.redis.configure.SpringJedisProperties",
+      "name": "spring.jedis.nodes",
+      "description": "Redis cluster address",
+      "type": "java.util.List<java.lang.String>"
+    },
+    {
+      "sourceType": "com.zc.smartcity.redis.configure.SpringJedisProperties",
+      "name": "spring.jedis.pool",
+      "description": "Jedis connection pool",
+      "type": "redis.clients.jedis.JedisPool"
+    },
+    {
+      "sourceType": "com.zc.smartcity.redis.configure.SpringJedisProperties",
+      "defaultValue": 6379,
+      "name": "spring.jedis.port",
+      "description": "Redis port",
+      "type": "java.lang.Integer"
+    },
+    {
+      "name": "spring.jedis.stand.alone.enabled",
+      "description": "Description for spring.jedis.stand.alone.enabled.",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.zc.smartcity.redis.configure.SpringJedisProperties",
+      "defaultValue": false,
+      "name": "spring.jedis.test-on-borrow",
+      "description": "Test to get the correct connection",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.zc.smartcity.redis.configure.SpringJedisProperties",
+      "defaultValue": 30000,
+      "name": "spring.jedis.timeout",
+      "description": "overtime time",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.zc.smartcity.redis.configure.SpringJedisProperties",
+      "name": "spring.jedis.zk-host-port",
+      "description": "zk",
+      "type": "java.lang.String"
+    }
+  ]
+}
