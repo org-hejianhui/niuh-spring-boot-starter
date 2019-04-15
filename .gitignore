@@ -30,5 +30,5 @@ hs_err_pid*
 .idea/
 
 # .gitignore for maven
-/target/
+target/
 *.releaseBackup
