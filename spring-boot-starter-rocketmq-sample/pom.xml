@@ -2,14 +2,73 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>niuh-spring-boot-starter</artifactId>
-        <groupId>com.github.org-hejianhui</groupId>
-        <version>1.0-RELEASE</version>
-    </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.github.org-hejianhui</groupId>
     <artifactId>spring-boot-starter-rocketmq-sample</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <name>RocketMQ Spring Boot Samples</name>
+    <description>Samples for RocketMQ Spring Boot</description>
+    <url>https://github.com/org-hejianhui/niuh-spring-boot-starter/tree/master/spring-boot-starter-rocketmq</url>
+
+    <modules>
+        <module>rocketmq-produce-demo</module>
+        <module>rocketmq-consume-demo</module>
+    </modules>
+
+    <properties>
+        <spring-boot-starter-rocketmq-version>1.0-RELEASE</spring-boot-starter-rocketmq-version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github.org-hejianhui</groupId>
+            <artifactId>spring-boot-starter-rocketmq</artifactId>
+            <version>${spring-boot-starter-rocketmq-version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.17</version>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <configuration>
+                            <skip>${disable.checks}</skip>
+                            <excludes>src/main/resources</excludes>
+                            <configLocation>style/rmq_checkstyle.xml</configLocation>
+                            <encoding>UTF-8</encoding>
+                            <consoleOutput>true</consoleOutput>
+                            <failsOnError>true</failsOnError>
+                        </configuration>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.0.5.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
