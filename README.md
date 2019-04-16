@@ -6,6 +6,7 @@
 | Module 名称                                                  | Module 介绍                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [spring-boot-starter-redis](./spring-boot-starter-redis) | 基于Jedis的自定义redis-starter组件                               |
+| [spring-boot-starter-rocketmq](./spring-boot-starter-rocketmq) | 基于Apache RocketMQ的自定义rocketmq-starter组件                               |
 
 
 # 使用登记
