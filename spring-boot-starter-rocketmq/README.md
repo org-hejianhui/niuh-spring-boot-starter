@@ -120,9 +120,8 @@ public class ProducerApplication implements CommandLineRunner{
 ```
 
 > 更多发送相关配置
->
-> ```yml
-  spring:
+```yml
+spring:
     rocketmq:
       producer:
         send-message-timeout: 300000
@@ -131,12 +130,12 @@ public class ProducerApplication implements CommandLineRunner{
         retry-times-when-send-async-failed: 0
         retry-next-server: true
         retry-times-when-send-failed: 2
-> ```
+```
 
 
 ### 接收消息
 
-```properties
+```yml
 ## application.yml
 spring:
   rocketmq:
