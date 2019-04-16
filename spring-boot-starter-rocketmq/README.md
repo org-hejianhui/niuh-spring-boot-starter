@@ -22,7 +22,7 @@
 
 ## Quick Start
 
-下面列出来了一些关键点，完整的示例请参考： [spring-boot-starter-rocketmq-sample](./spring-boot-starter-rocketmq-sample)
+下面列出来了一些关键点，完整的示例请参考： [spring-boot-starter-rocketmq-sample](../spring-boot-starter-rocketmq-sample)
 
 注意:当前的RELEASE.VERSION=1.0-RELEASE 
 
@@ -122,7 +122,7 @@ public class ProducerApplication implements CommandLineRunner{
 > 更多发送相关配置
 >
 > ```yml
-> spring:
+  spring:
     rocketmq:
       producer:
         send-message-timeout: 300000
@@ -178,7 +178,7 @@ public class ConsumerApplication{
 
 > 更多消费相关配置
 >
-> see: [RocketMQMessageListener](spring-boot-starter-rocketmq/src/main/java/com/zc/smartcity/rocketmq/annotation/RocketMQMessageListener.java) 
+> see: [RocketMQMessageListener](src/main/java/com/zc/smartcity/rocketmq/annotation/RocketMQMessageListener.java) 
 
 ### 消息轨迹
 
