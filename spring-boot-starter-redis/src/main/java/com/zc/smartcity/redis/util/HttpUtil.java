@@ -30,12 +30,11 @@ import java.util.concurrent.TimeoutException;
 public class HttpUtil {
     /**
      * POST请求（同步）
-     * </P>
      * 连接超时时间：1秒
      * 传输超时时间：3秒
-     * @param url
-     * @param params
-     * @return
+     * @param url 请求地址
+     * @param params 请求参数
+     * @return 响应结果
      */
     public final static String doPostFormSync(String url,Map<String,String> params) {
         HttpPost httpPost = new HttpPost(url);
@@ -61,12 +60,11 @@ public class HttpUtil {
 
     /**
      * POST请求（同步）
-     * </P>
      * 连接超时时间：1秒
      * 传输超时时间：3秒
-     * @param url
-     * @param entity
-     * @return
+     * @param url 请求地址
+     * @param entity 请求参数
+     * @return 响应结果
      */
     public final static String doPostSync(String url,String entity) {
         HttpPost httpPost = new HttpPost(url);
@@ -90,9 +88,9 @@ public class HttpUtil {
      * POST请求（异步）
      * 连接超时时间：1秒
      * 传输超时时间：3秒
-     * @param url
-     * @param params
-     * @return
+     * @param url 请求地址
+     * @param params 请求参数
+     * @return 响应结果
      */
     public final static String doPostFormAsyn(String url,Map<String,String> params) {
         HttpPost httpPost = new HttpPost(url);
@@ -134,9 +132,9 @@ public class HttpUtil {
      * POST请求（异步）
      * 连接超时时间：1秒
      * 传输超时时间：3秒
-     * @param url
-     * @param entity
-     * @return
+     * @param url 请求地址
+     * @param entity 请求参数
+     * @return 响应结果
      */
     public final static String doPostAsyn(String url,String entity) {
         HttpPost httpPost = new HttpPost(url);

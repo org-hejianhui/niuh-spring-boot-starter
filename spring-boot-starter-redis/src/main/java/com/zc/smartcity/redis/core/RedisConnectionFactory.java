@@ -21,7 +21,6 @@ public class RedisConnectionFactory implements IRedisConnection {
      * 关闭服务时，自动销毁
      *
      * @author org_hejianhui@163.com
-     * @date 2019/4/17
      */
     @Override
     public void destroy() {
@@ -39,7 +38,6 @@ public class RedisConnectionFactory implements IRedisConnection {
      *
      * @return Jedis
      * @author org_hejianhui@163.com
-     * @date 2019/4/17
      */
     public Jedis getJedis() {
         return getJedis(0);
@@ -51,7 +49,6 @@ public class RedisConnectionFactory implements IRedisConnection {
      * @param index db库标记
      * @return Jedis
      * @author org_hejianhui@163.com
-     * @date 2019/4/17
      */
     public Jedis getJedis(int index) {
         Jedis jedis = standAloneConfig.getJedisPool().getResource();
@@ -64,7 +61,6 @@ public class RedisConnectionFactory implements IRedisConnection {
      *
      * @param jedis 连接
      * @author org_hejianhui@163.com
-     * @date 2019/4/17
      */
     public void returnRedis(Jedis jedis) {
         jedis.close();

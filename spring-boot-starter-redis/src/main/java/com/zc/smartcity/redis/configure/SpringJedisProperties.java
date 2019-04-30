@@ -9,16 +9,18 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @program: redis-spring-boot-starter
- * @description: jedis配置
- * @author: hejianhui
- * @create: 2019-04-04 21:58
+ * redis-spring-boot-starter
+ * jedis配置
+ * @author hejianhui
  **/
 @ConfigurationProperties(prefix = SpringJedisProperties.REDIS_PREFIX)
 @PropertySource("classpath:application.yml")
 @Data
 public class SpringJedisProperties {
 
+    /**
+     * jedis prefix
+     */
     static final String REDIS_PREFIX = "spring.jedis";
 
     /**

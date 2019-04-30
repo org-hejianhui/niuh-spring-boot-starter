@@ -5,7 +5,7 @@ import java.io.Serializable;
 public interface Protocol extends Serializable {
     /**
      * 传输数据的统一格式化输出
-     * @return
+     * @return Serializable
      */
     Serializable toExport();
 }

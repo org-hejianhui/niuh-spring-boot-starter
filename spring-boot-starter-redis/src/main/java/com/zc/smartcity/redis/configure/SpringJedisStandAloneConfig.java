@@ -8,10 +8,9 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 /**
- * @program: redis-spring-boot-starter
- * @description: jedis连接池(单机)
- * @author: hejianhui
- * @create: 2019-04-07 23:30
+ * redis-spring-boot-starter
+ * jedis连接池(单机)
+ * @author hejianhui
  **/
 @Data
 @Slf4j
@@ -36,7 +35,6 @@ public class SpringJedisStandAloneConfig extends JedisPoolConfig {
      *
      * @param properties 配置信息
      * @author org_hejianhui@163.com
-     * @date 2019/4/7
      */
     public SpringJedisStandAloneConfig(SpringJedisProperties properties) {
         super();
@@ -49,7 +47,6 @@ public class SpringJedisStandAloneConfig extends JedisPoolConfig {
      *
      * @param properties 配置信息
      * @author org_hejianhui@163.com
-     * @date 2019/4/7
      */
     private void init(SpringJedisProperties properties) {
         business = properties.getBusiness();
@@ -88,7 +85,6 @@ public class SpringJedisStandAloneConfig extends JedisPoolConfig {
      *
      * @return boolean
      * @author org_hejianhui@163.com
-     * @date 2019/4/7
      */
     private boolean isConnected() {
         Jedis jedis = jedisPool.getResource();

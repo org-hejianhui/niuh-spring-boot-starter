@@ -31,7 +31,11 @@ public class CuratorZookeeper {
 	
 	private GedisGroups values;
 
-	
+	/**
+	 * zookeeper init
+	 * @param host host
+	 * @param values values
+	 */
 	public CuratorZookeeper(String host,GedisGroups values){
 		
 		this.values = values;
@@ -47,8 +51,7 @@ public class CuratorZookeeper {
 	 * 
 	 * add watcher
 	 * 
-	 * @return
-	 * @throws Exception
+	 * @throws Exception add exception
 	 */
 	
 	public void addWatcher() throws Exception{
@@ -64,9 +67,9 @@ public class CuratorZookeeper {
 	/**
 	 *  get zk nate value
 	 * 
-	 * @param path
-	 * @return
-	 * @throws Exception
+	 * @param path 路径
+	 * @return data
+	 * @throws Exception getdata execption
 	 */
 	private String getData(String path) throws Exception{
 		if(!zkTools.getZookeeperClient().isConnected())
@@ -79,7 +82,7 @@ public class CuratorZookeeper {
 	/**
 	 * get children node value *
 	 * 
-	 * @return
+	 * @return list
 	 */
 	//private ZooKeeperWatch watcher  = new 	ZooKeeperWatch();
 	public List<String> getChildrens(){
@@ -120,7 +123,7 @@ public class CuratorZookeeper {
 	 * 
 	 * zk连接listener 处理失连后重新连
 	 * 
-	 * @author fanxubiao
+	 * @author org_hejianhui@163.com
 	 *
 	 */
 	public class MyConnectionStateListener implements ConnectionStateListener {
@@ -139,7 +142,7 @@ public class CuratorZookeeper {
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-					LOGGER.error(e.getMessage());;
+					LOGGER.error(e.getMessage());
 				}
 	    	  }
 	      }

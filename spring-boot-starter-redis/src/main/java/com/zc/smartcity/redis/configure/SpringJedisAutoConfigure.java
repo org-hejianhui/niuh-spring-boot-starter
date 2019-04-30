@@ -30,10 +30,9 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @program: redis-spring-boot-starter
- * @description: jedis自动配置
- * @author: hejianhui
- * @create: 2019-04-07 22:51
+ * redis-spring-boot-starter
+ * jedis自动配置
+ * @author hejianhui
  **/
 @Configuration
 @ConditionalOnClass(value = {

@@ -10,7 +10,6 @@ import redis.clients.jedis.JedisCluster;
  * </p>
  *
  * @author: hejianhui
- * @create: 2019-04-04 03:43
  * @see IRedisClusterConnection
  * @since JDK1.8
  */

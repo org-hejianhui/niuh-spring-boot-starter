@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>RocketMQ Spring Boot Samples</name>
+    <name>spring-boot-starter-rocketmq-sample</name>
     <description>Samples for RocketMQ Spring Boot</description>
     <url>https://github.com/org-hejianhui/niuh-spring-boot-starter/tree/master/spring-boot-starter-rocketmq</url>
 

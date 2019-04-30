@@ -3,10 +3,9 @@ package com.zc.smartcity.redis.spring;
 import lombok.Data;
 
 /**
- * @program: redis-switch
- * @description: Key-Value实体类
- * @author: hejianhui
- * @create: 2019-04-04 21:58
+ * redis-switch
+ * Key-Value实体类
+ * @author hejianhui
  **/
 @Data
 public class RedisKVPO {

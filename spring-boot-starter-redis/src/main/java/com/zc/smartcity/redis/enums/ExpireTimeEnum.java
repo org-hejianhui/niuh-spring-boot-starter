@@ -7,7 +7,6 @@ package com.zc.smartcity.redis.enums;
  * </p>
  *
  * @author: hejianhui
- * @create: 2019-04-03 17:14
  * @see ExpireTimeEnum
  * @since JDK1.8
  */
