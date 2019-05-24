@@ -6,7 +6,7 @@ import redis.clients.jedis.Jedis;
 
 /**
  * <p>
- *      IRedisConnection
+ * IRedisConnection
  * </p>
  *
  * @author: hejianhui
@@ -18,4 +18,6 @@ public interface IRedisConnection extends InitializingBean, DisposableBean {
     Jedis getJedis();
 
     String getBusiness();
+
+    void returnRedis(Jedis jedis);
 }

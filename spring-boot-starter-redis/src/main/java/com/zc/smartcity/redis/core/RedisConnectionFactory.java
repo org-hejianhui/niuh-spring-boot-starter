@@ -31,6 +31,7 @@ public class RedisConnectionFactory implements IRedisConnection {
     @Override
     public void afterPropertiesSet() throws Exception {
         log.info("RedisConnectionFactory is running!");
+        // jedis = standAloneConfig.getJedisPool().getResource();
     }
 
     /**
@@ -62,6 +63,7 @@ public class RedisConnectionFactory implements IRedisConnection {
      * @param jedis 连接
      * @author org_hejianhui@163.com
      */
+    @Override
     public void returnRedis(Jedis jedis) {
         jedis.close();
     }
@@ -70,5 +72,7 @@ public class RedisConnectionFactory implements IRedisConnection {
     public String getBusiness() {
         return standAloneConfig.getBusiness();
     }
+
+
 
 }

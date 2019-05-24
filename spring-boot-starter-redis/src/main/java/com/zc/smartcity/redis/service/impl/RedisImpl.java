@@ -75,7 +75,13 @@ public class RedisImpl implements IRedis {
 
     @Override
     public Long hset(String business, String key, String field, String value) {
-        return getJedis().hset(RedisUtil.buildKey(getBusiness(business), key), field, value);
+        Jedis jedis = null;
+        try {
+            jedis = getJedis();
+            return jedis.hset(RedisUtil.buildKey(getBusiness(business), key), field, value);
+        } finally {
+            returnRedis(jedis);
+        }
     }
 
     @Override
@@ -150,7 +156,7 @@ public class RedisImpl implements IRedis {
 
     @Override
     public Long hlen(String business, String key) {
-        return getJedis().hlen(RedisUtil.buildKey(getBusiness(business),key));
+        return getJedis().hlen(RedisUtil.buildKey(getBusiness(business), key));
     }
 
     @Override
@@ -161,22 +167,22 @@ public class RedisImpl implements IRedis {
     @Override
     public List<Object> mutliExecute(String business, List<Command> commands) {
         String tmpBusiness = getBusiness(business);
-        if(Strings.isNullOrEmpty(tmpBusiness)){
+        if (Strings.isNullOrEmpty(tmpBusiness)) {
             return null;
         }
         List<Object> result = Lists.newArrayList();
         Class clazz = RedisImpl.class;
-        for(Command c : commands){
+        for (Command c : commands) {
             List<Object> params = c.getParameters();
             int paramsSize = params.size();
-            Class[] types = new Class[paramsSize+1];
-            Object[] paramss = new Object[paramsSize+1];
+            Class[] types = new Class[paramsSize + 1];
+            Object[] paramss = new Object[paramsSize + 1];
             paramss[0] = tmpBusiness;
             types[0] = tmpBusiness.getClass();
-            for(int i=0;i<paramsSize;i++){
+            for (int i = 0; i < paramsSize; i++) {
                 Object param = params.get(i);
-                types[i+1] = param.getClass();
-                paramss[i+1] = param;
+                types[i + 1] = param.getClass();
+                paramss[i + 1] = param;
             }
             Method method = null;
             try {
@@ -186,28 +192,28 @@ public class RedisImpl implements IRedis {
                  * 做8种基本类型的转换
                  * 注：一般情况，要求反射的方法的参数，要么全部为基本数据类型，要么全部为对象数据类型，不允许两种并存
                  */
-                for(int i=0;i<paramsSize;i++){
+                for (int i = 0; i < paramsSize; i++) {
                     Object param = params.get(i);
                     Class type = param.getClass();
-                    if(type == Integer.class){
+                    if (type == Integer.class) {
                         type = Integer.TYPE;
-                    } else if(type == Long.class){
+                    } else if (type == Long.class) {
                         type = Long.TYPE;
-                    } else if(type == Float.class){
+                    } else if (type == Float.class) {
                         type = Float.TYPE;
-                    } else if(type == Double.class){
+                    } else if (type == Double.class) {
                         type = Double.TYPE;
-                    } else if(type == Boolean.class){
+                    } else if (type == Boolean.class) {
                         type = Boolean.TYPE;
-                    } else if(type == Byte.class){
+                    } else if (type == Byte.class) {
                         type = Byte.TYPE;
-                    } else if(type == Short.class){
+                    } else if (type == Short.class) {
                         type = Short.TYPE;
-                    } else if(type == Character.class){
+                    } else if (type == Character.class) {
                         type = Character.TYPE;
                     }
-                    types[i+1] = type;
-                    paramss[i+1] = param;
+                    types[i + 1] = type;
+                    paramss[i + 1] = param;
                 }
                 try {
                     method = clazz.getDeclaredMethod(c.getCommandName().name(), types);
@@ -298,12 +304,12 @@ public class RedisImpl implements IRedis {
 
     @Override
     public String ltrim(String business, String key, Long start, Long end) {
-        return getJedis().ltrim(RedisUtil.buildKey(getBusiness(business),key),start,end);
+        return getJedis().ltrim(RedisUtil.buildKey(getBusiness(business), key), start, end);
     }
 
     @Override
     public Boolean sismember(String business, String key, String member) {
-        return getJedis().sismember(RedisUtil.buildKey(getBusiness(business),key),member);
+        return getJedis().sismember(RedisUtil.buildKey(getBusiness(business), key), member);
     }
 
 
@@ -311,10 +317,18 @@ public class RedisImpl implements IRedis {
     public String set(String business, String key, String value, ExistEnum existEnum, ExpireTimeEnum expireTimeEnum, long time) {
         SetParams setParams = new SetParams();
         // existEnum.name(), existEnum.name(), time
-        if(existEnum.name() == "NX") setParams.nx();
-        if(existEnum.name() == "XX") setParams.xx();
-        if(expireTimeEnum.name() == "EX") setParams.ex((int) time);
-        if(expireTimeEnum.name() == "PX") setParams.px(time);
+        if (existEnum.name() == "NX") {
+            setParams.nx();
+        }
+        if (existEnum.name() == "XX") {
+            setParams.xx();
+        }
+        if (expireTimeEnum.name() == "EX") {
+            setParams.ex((int) time);
+        }
+        if (expireTimeEnum.name() == "PX") {
+            setParams.px(time);
+        }
         return getJedis().set(RedisUtil.buildKey(getBusiness(business), key), value, setParams);
     }
 
@@ -322,16 +336,24 @@ public class RedisImpl implements IRedis {
     public String set(String business, byte[] key, byte[] value, ExistEnum existEnum, ExpireTimeEnum expireTimeEnum, long time) {
         SetParams setParams = new SetParams();
         // existEnum.name(), existEnum.name(), time
-        if(existEnum.name() == "NX") setParams.nx();
-        if(existEnum.name() == "XX") setParams.xx();
-        if(expireTimeEnum.name() == "EX") setParams.ex((int) time);
-        if(expireTimeEnum.name() == "PX") setParams.px(time);
-        return getJedis().set(RedisUtil.buildKey(getBusiness(business), key), value,setParams);
+        if (existEnum.name() == "NX") {
+            setParams.nx();
+        }
+        if (existEnum.name() == "XX") {
+            setParams.xx();
+        }
+        if (expireTimeEnum.name() == "EX") {
+            setParams.ex((int) time);
+        }
+        if (expireTimeEnum.name() == "PX") {
+            setParams.px(time);
+        }
+        return getJedis().set(RedisUtil.buildKey(getBusiness(business), key), value, setParams);
     }
 
     @Override
     public String getSet(String business, String key, String value) {
-        return getJedis().getSet(RedisUtil.buildKey(getBusiness(business),key), value);
+        return getJedis().getSet(RedisUtil.buildKey(getBusiness(business), key), value);
     }
 
     @Override
@@ -455,15 +477,19 @@ public class RedisImpl implements IRedis {
     }
 
 
-    private String getBusiness(String business){
-        if(Strings.isNullOrEmpty(redisConnectionFactory.getBusiness())){
+    private String getBusiness(String business) {
+        if (Strings.isNullOrEmpty(redisConnectionFactory.getBusiness())) {
             return business;
         } else {
             return redisConnectionFactory.getBusiness();
         }
     }
 
-    private Jedis getJedis(){
+    private Jedis getJedis() {
         return redisConnectionFactory.getJedis();
+    }
+
+    private void returnRedis(Jedis jedis) {
+        redisConnectionFactory.returnRedis(jedis);
     }
 }
