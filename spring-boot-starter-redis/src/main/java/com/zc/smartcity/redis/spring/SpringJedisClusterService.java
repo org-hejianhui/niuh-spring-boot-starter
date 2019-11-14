@@ -19,4 +19,9 @@ public class SpringJedisClusterService extends JedisCluster {
     public SpringJedisClusterService(Set<HostAndPort> nodes, JedisPoolConfig config) {
         super(nodes, config);
     }
+
+
+    public SpringJedisClusterService(Set<HostAndPort> nodes, int connectionTimeout, int soTimeout, int maxAttempts, String auth, JedisPoolConfig config) {
+        super(nodes,connectionTimeout,soTimeout,maxAttempts,auth,config);
+    }
 }

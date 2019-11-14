@@ -23,6 +23,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.StringUtils;
 import redis.clients.jedis.HostAndPort;
+import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 import java.util.HashSet;
@@ -103,8 +104,16 @@ public class SpringJedisAutoConfigure {
         config.setMaxIdle(properties.getMinIdle());
         config.setTestOnBorrow(properties.isTestOnBorrow());
         //集群配置
-        return new SpringJedisClusterService(nodes, config);
+        //获取连接池 判断是否存在鉴权
+        if (StringUtils.hasLength(properties.getAuth())) {
+
+            return new SpringJedisClusterService(nodes,properties.getConnectionTimeout(),properties.getSoTimeout(),properties.getMaxAttempts(),properties.getAuth(),config);
+        } else {
+            return new SpringJedisClusterService(nodes, config);
+        }
+
     }
+
 
     /**
      * 注册单机Redis连接工厂Bean

@@ -2,6 +2,7 @@ package com.zc.smartcity.redis.core;
 
 import com.google.common.collect.Sets;
 import com.zc.smartcity.redis.configure.SpringJedisProperties;
+import com.zc.smartcity.redis.spring.SpringJedisClusterService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +65,15 @@ public class RedisClusterConnectionFactory implements IRedisClusterConnection {
                 jedisPoolConfig.setMaxIdle(springJedisProperties.getMinIdle());
                 jedisPoolConfig.setTestOnBorrow(springJedisProperties.isTestOnBorrow());
             }
-            jedisCluster = new JedisCluster(hostAndPorts,jedisPoolConfig);
+            //集群配置
+            //获取连接池 判断是否存在鉴权
+            if (StringUtils.hasLength(springJedisProperties.getAuth())) {
+
+                jedisCluster = new JedisCluster(hostAndPorts,springJedisProperties.getConnectionTimeout(),springJedisProperties.getSoTimeout(),springJedisProperties.getMaxAttempts(),springJedisProperties.getAuth(),jedisPoolConfig);
+            } else {
+                jedisCluster = new JedisCluster(hostAndPorts,jedisPoolConfig);
+            }
+
         }
 
         log.info("RedisClusterConnectionFactory is running!");

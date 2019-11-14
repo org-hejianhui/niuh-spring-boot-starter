@@ -63,7 +63,7 @@ public class SpringJedisProperties {
     /**
      * Authentication password
      **/
-    private String auth;
+    private String auth = "sagis@123";
     /**
      * business type
      */
@@ -76,4 +76,19 @@ public class SpringJedisProperties {
      * monitor setting
      */
     private Map<?,?> monitor;
+
+    /**
+     * 超时
+     */
+    private int connectionTimeout = 60000;
+
+    /**
+     * 访问数据时间
+     */
+    private int soTimeout = 30000;
+
+    /**
+     * 访问数据时间
+     */
+    private int maxAttempts = 3;
 }
