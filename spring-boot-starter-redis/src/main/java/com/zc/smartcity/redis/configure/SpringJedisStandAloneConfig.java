@@ -79,7 +79,6 @@ public class SpringJedisStandAloneConfig extends JedisPoolConfig {
         }
     }
 
-
     /**
      * 验证是否连接正常
      *

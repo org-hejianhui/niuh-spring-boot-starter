@@ -1,6 +1,7 @@
 package com.zc.smartcity.redis;
 
 import com.zc.smartcity.redis.service.IRedis;
+import com.zc.smartcity.redis.spring.SpringJedisStandAloneService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,27 +13,29 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class IRedisTest {
 
    @Autowired
-   IRedis iRedis;
+   SpringJedisStandAloneService springJedisStandAloneService;
 
    @Autowired
    IRedis iRedisClusterHA;
 
    @Test
     public void testKey(){
-      for (int i=0;i<100;i++) {
-          iRedisClusterHA.set("trade", "hejianhui" + i, "20190409" + i);
-         System.out.println(iRedis.get("trade","hejianhui"+i));
-         try {
-            Thread.sleep(2000);
-         } catch (InterruptedException e) {
-            e.printStackTrace();
-         }
+
+       new Thread().start();
+      for (int i=0;i<1000000000;i++) {
+          //iRedis.set("trade", "hejianhui" + i, "20190409" + i);
+
+
+
+          springJedisStandAloneService.hset(0,"test", "hejianhui","hejianhui" + i, "20190409" + i);
+          System.out.println(springJedisStandAloneService.hget(0,"test","hejianhui","hejianhui" + i));
+//         try {
+//            Thread.sleep(2000);
+//         } catch (InterruptedException e) {
+//            e.printStackTrace();
+//         }
       }
-      try {
-         Thread.sleep(Long.MAX_VALUE);
-      } catch (InterruptedException e) {
-         e.printStackTrace();
-      }
+
    }
 
    @Test

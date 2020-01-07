@@ -75,7 +75,13 @@ public class RedisImpl implements IRedis {
 
     @Override
     public Long hset(String business, String key, String field, String value) {
-        return getJedis().hset(RedisUtil.buildKey(getBusiness(business), key), field, value);
+        Jedis jedis = null;
+        try {
+            jedis = getJedis();
+            return jedis.hset(RedisUtil.buildKey(getBusiness(business), key), field, value);
+        } finally {
+            returnRedis(jedis);
+        }
     }
 
     @Override
