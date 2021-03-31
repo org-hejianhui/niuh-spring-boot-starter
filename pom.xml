@@ -73,7 +73,7 @@
         <jedis.version>3.0.1</jedis.version>
 
         <!-- guava -->
-        <guava.version>27.1-jre</guava.version>
+        <guava.version>29.0-jre</guava.version>
 
         <!-- ZooKeeper API -->
         <curator.version>4.2.0</curator.version>
