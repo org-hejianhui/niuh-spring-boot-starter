@@ -82,7 +82,7 @@
         <quartz.version>2.3.1</quartz.version>
 
         <!-- httpclient -->
-        <httpclient.version>4.5.8</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
 
         <!-- httpasyncclient -->
         <httpasyncclient.version>4.1.4</httpasyncclient.version>
