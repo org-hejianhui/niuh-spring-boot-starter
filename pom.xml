@@ -37,7 +37,7 @@
         <spring.version>5.1.5.RELEASE</spring.version>
 
         <!-- springboot -->
-        <springboot.version>2.0.5.RELEASE</springboot.version>
+        <springboot.version>2.2.11.RELEASE</springboot.version>
 
         <!--lombok -->
         <lombok.version>1.18.6</lombok.version>
